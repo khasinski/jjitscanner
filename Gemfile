@@ -25,6 +25,8 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+gem "fast_jsonparser"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
@@ -37,9 +39,12 @@ gem "whenever", require: false
 # Analytics panel
 gem "blazer"
 
+gem "whenever", require: false
+
 group :development, :test do
   gem "debug"
   gem "rspec-rails"
+  gem "pry"
 end
 
 group :development do

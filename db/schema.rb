@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_22_215142) do
+ActiveRecord::Schema[7.1].define(version: 2022_05_03_205948) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +68,66 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_22_215142) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_blazer_queries_on_creator_id"
+  end
+
+  create_table "employment_types", force: :cascade do |t|
+    t.bigint "offer_id"
+    t.string "name"
+    t.integer "from"
+    t.integer "to"
+    t.string "currency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["offer_id"], name: "index_employment_types_on_offer_id"
+  end
+
+  create_table "multilocations", force: :cascade do |t|
+    t.bigint "offer_id"
+    t.string "city"
+    t.string "slug"
+    t.string "street"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["offer_id"], name: "index_multilocations_on_offer_id"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.string "title"
+    t.string "street"
+    t.string "city"
+    t.string "country_code"
+    t.string "address_text"
+    t.string "marker_icon"
+    t.string "workplace_type"
+    t.string "company_name"
+    t.string "company_url"
+    t.string "company_size"
+    t.string "experience_level"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.datetime "published_at"
+    t.boolean "remote_interview"
+    t.boolean "open_to_hire_ukrainians"
+    t.string "jjit_id"
+    t.boolean "display_offer"
+    t.boolean "remote"
+    t.boolean "way_of_apply"
+    t.string "company_logo_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jjit_id"], name: "index_offers_on_jjit_id"
+  end
+
+  create_table "offers_skills", id: false, force: :cascade do |t|
+    t.bigint "offer_id", null: false
+    t.bigint "skill_id", null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.integer "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
