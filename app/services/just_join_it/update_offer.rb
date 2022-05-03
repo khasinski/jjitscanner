@@ -36,7 +36,7 @@ module JustJoinIt
         :display_offer,
         :remote,
         :way_of_apply,
-        :company_logo_url
+        :company_logo_url,
       ]
     end
 
@@ -90,4 +90,3 @@ module JustJoinIt
     end
   end
 end
-

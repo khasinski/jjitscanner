@@ -39,8 +39,6 @@ gem "whenever", require: false
 # Analytics panel
 gem "blazer"
 
-gem "whenever", require: false
-
 group :development, :test do
   gem "debug"
   gem "rspec-rails"
