@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
+gem "dotenv-rails", require: "dotenv/rails-now"
+
 gem "rails", github: "rails/rails", branch: "main"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
@@ -47,4 +49,11 @@ end
 
 group :development do
   gem "rufo"
+  gem "net-ssh", "7.0.0.beta1" # https://stackoverflow.com/questions/72068406/capistrano-fail-to-deploy-rails-app-due-to-incompatibility-with-openssl-3-0
+  gem "capistrano", "~> 3.17", require: false
+  gem "capistrano-rails", "~> 1.6", require: false
+  gem "capistrano-rvm"
+  gem "capistrano-bundler"
+  gem "capistrano3-puma"
+  gem "capistrano-dotenv-tasks", require: false
 end

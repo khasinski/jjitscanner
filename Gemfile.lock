@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 1b884cfe8a2fb62b8d5bdb117ac477b1cb2a5821
+  revision: da05fa3381c2c68a56259349fb6600fd105af1f1
   branch: main
   specs:
     actioncable (7.1.0.alpha)
@@ -94,7 +94,9 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    blazer (2.6.1)
+    airbrussh (1.4.0)
+      sshkit (>= 1.6.1, != 1.7.0)
+    blazer (2.6.2)
       activerecord (>= 5)
       chartkick (>= 3.2)
       railties (>= 5)
@@ -102,6 +104,25 @@ GEM
     bootsnap (1.11.1)
       msgpack (~> 1.2)
     builder (3.2.4)
+    capistrano (3.17.0)
+      airbrussh (>= 1.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (2.0.1)
+      capistrano (~> 3.1)
+    capistrano-dotenv-tasks (0.1.5)
+      capistrano (~> 3.0)
+    capistrano-rails (1.6.2)
+      capistrano (~> 3.1)
+      capistrano-bundler (>= 1.1, < 3)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+    capistrano3-puma (5.2.0)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (>= 4.0, < 6.0)
     chartkick (4.1.3)
     chronic (0.10.2)
     coderay (1.1.3)
@@ -113,9 +134,13 @@ GEM
       reline (>= 0.2.7)
     diff-lcs (1.5.0)
     digest (3.1.0)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     errbase (0.2.2)
     erubi (1.10.0)
-    faraday (2.2.0)
+    faraday (2.3.0)
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.2)
@@ -153,12 +178,15 @@ GEM
       timeout
     net-protocol (0.1.3)
       timeout
+    net-scp (3.0.0)
+      net-ssh (>= 2.6.5, < 7.0.0)
     net-smtp (0.3.1)
       digest
       net-protocol
       timeout
+    net-ssh (7.0.0.beta1)
     nio4r (2.5.8)
-    nokogiri (1.13.4-x86_64-linux)
+    nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     pg (1.3.5)
     pry (0.14.1)
@@ -211,7 +239,10 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    strscan (3.0.1)
+    sshkit (1.21.2)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
+    strscan (3.0.2)
     thor (1.2.1)
     timeout (0.2.0)
     tzinfo (2.0.4)
@@ -229,11 +260,19 @@ PLATFORMS
 DEPENDENCIES
   blazer
   bootsnap
+  capistrano (~> 3.17)
+  capistrano-bundler
+  capistrano-dotenv-tasks
+  capistrano-rails (~> 1.6)
+  capistrano-rvm
+  capistrano3-puma
   debug
+  dotenv-rails
   faraday
   fast_jsonparser
   importmap-rails
   jbuilder
+  net-ssh (= 7.0.0.beta1)
   pg (~> 1.1)
   pry
   puma (~> 5.0)
