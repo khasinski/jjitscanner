@@ -24,6 +24,8 @@ require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 require "whenever/capistrano"
 require "capistrano/puma"
+require "capistrano/puma/nginx"
+require "capistrano/puma/systemd"
 install_plugin Capistrano::Puma
 install_plugin Capistrano::Puma::Nginx
 install_plugin Capistrano::Puma::Systemd
