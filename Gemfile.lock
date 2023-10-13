@@ -152,7 +152,7 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
     fast_jsonparser (0.6.0)
-    finery (3.0.1)
+    finery (3.0.2)
       activerecord (>= 6.1)
       chartkick (>= 5)
       railties (>= 6.1)
