@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.1.2"
+ruby "3.4.9"
 
 gem "dotenv-rails", require: "dotenv/rails-now"
 
@@ -13,7 +13,7 @@ gem "sprockets-rails"
 gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 6.4"
+gem "puma", "~> 7.2"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -57,3 +57,6 @@ group :development do
   gem "capistrano3-puma"
   gem "capistrano-dotenv-tasks", require: false
 end
+
+# Extracted from default gems in Ruby 3.4
+gem "csv"
